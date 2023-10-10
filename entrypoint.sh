@@ -71,7 +71,9 @@ echo "+++++++++++++++++++RUNNING BEFORE SSH+++++++++++++++++++"
 executeSSH "$INPUT_SSH_BEFORE"
 echo "+++++++++++++++++++RUNNING BEFORE SSH+++++++++++++++++++"
 echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
+echo "ls -lath"
 ls -lath
+pwd
 executeSCP "$INPUT_SCP"
 echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
 echo "$INPUT_LOCAL_AFTER"
