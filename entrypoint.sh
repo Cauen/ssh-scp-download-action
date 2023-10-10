@@ -64,7 +64,7 @@ executeSCP() {
   done <<< $LINES
 }
 
-echo "Running local before - $INPUT_LOCAL_BEFORE"
+echo "Running local before: $INPUT_LOCAL_BEFORE"
 eval "$INPUT_LOCAL_BEFORE"
 setupSSH
 echo "+++++++++++++++++++RUNNING BEFORE SSH+++++++++++++++++++"
@@ -72,16 +72,10 @@ echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
 executeSSH "$INPUT_SSH_BEFORE"
 echo "+++++++++++++++++++RUNNING BEFORE SSH+++++++++++++++++++"
 echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
-# echo "mkdir -p ./backups/ && ls -lath ./backups && touch ./backups/my-backup.tar"
-# mkdir -p ./backups/ && ls -lath ./backups && touch ./backups/my-backup.tar
-echo "ls -lath"
-ls -lath
-echo "pwd"
-pwd
-
 executeSCP "$INPUT_SCP"
-echo "$INPUT_LOCAL_AFTER"
-$INPUT_LOCAL_AFTER
 echo "+++++++++++++++++++RUNNING AFTER SSH+++++++++++++++++++"
 executeSSH "$INPUT_SSH_AFTER"
 echo "+++++++++++++++++++RUNNING AFTER SSH+++++++++++++++++++"
+
+echo "Running local after: $INPUT_LOCAL_AFTER"
+eval $INPUT_LOCAL_AFTER
