@@ -68,16 +68,18 @@ echo "Running local before - $INPUT_LOCAL_BEFORE"
 $INPUT_LOCAL_BEFORE
 setupSSH
 echo "+++++++++++++++++++RUNNING BEFORE SSH+++++++++++++++++++"
+echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
 executeSSH "$INPUT_SSH_BEFORE"
 echo "+++++++++++++++++++RUNNING BEFORE SSH+++++++++++++++++++"
 echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
-echo "ls -lath"
+echo "mkdir -p ~/backups/ && ls -lath ~/backups && touch ~/backups/my-backup.tar"
 mkdir -p ~/backups/ && ls -lath ~/backups && touch ~/backups/my-backup.tar
+echo "ls -lath"
 ls -lath
+echo "pwd"
 pwd
 
 executeSCP "$INPUT_SCP"
-echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
 echo "$INPUT_LOCAL_AFTER"
 $INPUT_LOCAL_AFTER
 echo "+++++++++++++++++++RUNNING AFTER SSH+++++++++++++++++++"
