@@ -72,8 +72,10 @@ executeSSH "$INPUT_SSH_BEFORE"
 echo "+++++++++++++++++++RUNNING BEFORE SSH+++++++++++++++++++"
 echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
 echo "ls -lath"
+mkdir -p ~/backups/ && ls -lath ~/backups && touch ~/backups/my-backup.tar
 ls -lath
 pwd
+
 executeSCP "$INPUT_SCP"
 echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
 echo "$INPUT_LOCAL_AFTER"
