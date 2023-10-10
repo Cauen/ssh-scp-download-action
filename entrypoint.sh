@@ -64,8 +64,27 @@ executeSCP() {
   done <<< $LINES
 }
 
+executeAny() {
+  local LINES=$1
+  local COMMAND=
+
+  # this while read each commands in line and
+  # evaluate each line agains all environment variables
+  while IFS= read -r LINE; do
+    LINE=$(eval 'echo "$LINE"')
+    LINE=$(eval echo "$LINE")
+    COMMAND=$(echo $LINE)
+
+    # scp will fail if COMMAND is empty, this condition protects scp
+    if [[ $COMMAND = *[!\ ]* ]]; then
+      echo "$COMMAND"
+      $COMMAND
+    fi
+  done <<< $LINES
+}
+
 echo "Running local before - $INPUT_LOCAL_BEFORE"
-$INPUT_LOCAL_BEFORE
+executeAny $INPUT_LOCAL_BEFORE
 setupSSH
 echo "+++++++++++++++++++RUNNING BEFORE SSH+++++++++++++++++++"
 echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
