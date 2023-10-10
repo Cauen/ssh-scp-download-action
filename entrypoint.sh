@@ -68,10 +68,12 @@ setupSSH
 echo "+++++++++++++++++++RUNNING BEFORE SSH+++++++++++++++++++"
 executeSSH "$INPUT_SSH_BEFORE"
 echo "+++++++++++++++++++RUNNING BEFORE SSH+++++++++++++++++++"
+echo "$INPUT_LOCAL_BEFORE"
 $INPUT_LOCAL_BEFORE
 echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
 executeSCP "$INPUT_SCP"
 echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
+echo "$INPUT_LOCAL_AFTER"
 $INPUT_LOCAL_AFTER
 echo "+++++++++++++++++++RUNNING AFTER SSH+++++++++++++++++++"
 executeSSH "$INPUT_SSH_AFTER"
