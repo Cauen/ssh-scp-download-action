@@ -64,12 +64,12 @@ executeSCP() {
   done <<< $LINES
 }
 
+echo "Running local before - $INPUT_LOCAL_BEFORE"
+$INPUT_LOCAL_BEFORE
 setupSSH
 echo "+++++++++++++++++++RUNNING BEFORE SSH+++++++++++++++++++"
 executeSSH "$INPUT_SSH_BEFORE"
 echo "+++++++++++++++++++RUNNING BEFORE SSH+++++++++++++++++++"
-echo "$INPUT_LOCAL_BEFORE"
-$INPUT_LOCAL_BEFORE
 echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
 executeSCP "$INPUT_SCP"
 echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
