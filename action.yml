@@ -12,11 +12,17 @@ inputs:
   key:
     description: 'content of ssh private key. ex raw content of ~/.ssh/id_rsa'
   ssh_before:
-    description: 'execute commands before SCP'
+    description: 'execute ssh commands before SCP'
+  local_before:
+    description: 'execute local commands before SCP'
+  ssh_before:
+    description: 'execute ssh commands before SCP'
   scp:
     description: 'scp local and remote'
   ssh_after:
     description: 'execute commands after SCP'
+  local_after:
+    description: 'execute local commands after SCP'
 runs:
   using: 'docker'
   image: 'Dockerfile'
