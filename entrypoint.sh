@@ -72,8 +72,8 @@ echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
 executeSSH "$INPUT_SSH_BEFORE"
 echo "+++++++++++++++++++RUNNING BEFORE SSH+++++++++++++++++++"
 echo "+++++++++++++++++++RUNNING SCP+++++++++++++++++++"
-echo "mkdir -p ~/backups/ && ls -lath ~/backups && touch ~/backups/my-backup.tar"
-mkdir -p ~/backups/ && ls -lath ~/backups && touch ~/backups/my-backup.tar
+echo "mkdir -p ./backups/ && ls -lath ./backups && touch ./backups/my-backup.tar"
+mkdir -p ./backups/ && ls -lath ./backups && touch ./backups/my-backup.tar
 echo "ls -lath"
 ls -lath
 echo "pwd"
