@@ -15,8 +15,6 @@ inputs:
     description: 'execute ssh commands before SCP'
   local_before:
     description: 'execute local commands before SCP'
-  ssh_before:
-    description: 'execute ssh commands before SCP'
   scp:
     description: 'scp local and remote'
   ssh_after:
